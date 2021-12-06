@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>COVID-19 Predictor</title>
+    <title>Intellisense Systems</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -16,6 +16,12 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <style>
+        input {
+            margin: 10px 5px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -24,29 +30,30 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">Diabetes Predictor</a>
             </li>
-
         </ul>
     </nav>
 
-
     <br>
     <br>
-
-    <form action="{{ url_for('predict')}}" method="post">
-        <input type="text" name='Pregnancies' placeholder="Pregnancies" required="required" />
-        <input type="text" name="Glucose" placeholder="Glucose" required="required" />
-        <input type="text" name="BloodPressure" placeholder="BloodPressure" required="required" />
-        <input type="text" name="SkinThickness" placeholder="kinThickness" required="required" />
-        <input type="text" name="Insulin" placeholder="Insulin" required="required" />
-        <input type="text" name="BMI" placeholder="BMI" required="required" />
-
-        <input type="text" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction" required="required" />
-        <input type="text" name="Age" placeholder="Age" required="required" />
-        <br>
-        <br>
-        <button type="submit" class="btn btn-success btn-block btn-large">Predict</button>
-
-    </form>
+    <div class="container dflex">
+        <div class="alert alert-primary">Sample: 1,85,66,29,0,26.6,0.351,31,0</div>
+        <form action="{{ url_for('predict')}}" method="post" style="display:flex;flex-direction: column;">
+            <input type="text" class="form-control" name='Pregnancies' placeholder="Pregnancies" required="required" />
+            <input type="text" class="form-control" name="Glucose" placeholder="Glucose" required="required" />
+            <input type="text" class="form-control" name="BloodPressure" placeholder="BloodPressure"
+                required="required" />
+            <input type="text" class="form-control" name="SkinThickness" placeholder="SkinThickness"
+                required="required" />
+            <input type="text" class="form-control" name="Insulin" placeholder="Insulin" required="required" />
+            <input type="text" class="form-control" name="BMI" placeholder="BMI" required="required" />
+            <input type="text" class="form-control" name="DiabetesPedigreeFunction"
+                placeholder="DiabetesPedigreeFunction" required="required" />
+            <input type="text" class="form-control" name="Age" placeholder="Age" required="required" />
+            <br>
+            <br>
+            <button type="submit" class="btn btn-success btn-block btn-large">Predict</button>
+        </form>
+    </div>
     <br>
     <br>
     {{ prediction_text }}
